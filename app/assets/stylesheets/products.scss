@@ -1,0 +1,34 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+h1 {
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  height: 30px;
+  width: 80%;
+  padding: 20px;
+  margin: auto;
+  background-color: #8dc63f;
+  border: 2px solid #8dc63f;
+}
+
+h2 {
+  font-family: Helvetica, sans-serif;
+  font-style: bold;
+  text-align: left;
+  padding: 20px;
+
+}
+
+img {
+  max-width: 200px;
+}
+
+table {
+  font-family: Helvetica;
+  border-spacing: 30px;
+}
+
