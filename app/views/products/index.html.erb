@@ -1,0 +1,19 @@
+<h1>Products</h1>
+
+<div id="index">
+<% @products.each do |product| %>
+<img src="<%= product.image %>"/>
+<p><a href="/products/<%= product.id %>"/><%= product.name %></a></p>
+
+<button id="edit_button"><a data-confirm="Edit Product?" data-method="get" href="/products/<%= product.id%>/edit" >Edit Product</a></button>
+
+<button id="delete_button"><a data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= product.id%>" rel="nofollow">Delete Product</a></button>
+
+<hr>
+
+<% end %>
+</div>
+
+
+
+

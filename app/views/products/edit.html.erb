@@ -1,0 +1,36 @@
+<h1>Update your product</h1>
+
+<%= form_tag "/products/#{@product.id}", method: :patch do %>
+
+<div>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, @product.name %>
+</div>
+
+<div>
+  <%= label_tag :price %>
+  <%= text_field_tag :price, @product.price %>
+</div>
+
+<div>
+  <%= label_tag :image %>
+  <%= text_field_tag :image, @product.image %>
+</div>
+
+<div>
+  <%= label_tag :description %>
+  <%= text_field_tag :description, @product.description %>
+</div>
+
+<div id="update_button">
+  <%= submit_tag "Update Product" %>
+</div>
+
+<p></p>
+
+<button id="delete_button_edit"><a data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= @product.id%>" rel="nofollow">Delete Product</a></button>
+
+
+<% end %>
+
+

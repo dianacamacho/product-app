@@ -2,33 +2,135 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// #wrapper {
+//   margin: auto
+// }
 
-
+// #tables {
+//   display: inline-block;
+// }
 h1 {
   font-family: Helvetica, sans-serif;
   text-align: center;
+  color: #084c68;
   height: 30px;
-  width: 80%;
+  width: 100%;
   padding: 20px;
-  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   background-color: #8dc63f;
-  border: 2px solid #8dc63f;
-}
-
-h2 {
-  font-family: Helvetica, sans-serif;
-  font-style: bold;
-  text-align: left;
-  padding: 20px;
+  border: 3px solid #084c68;
 
 }
 
 img {
-  max-width: 200px;
+  max-height: 200px;
+  margin: auto;
 }
 
 table {
-  font-family: Helvetica;
+  font-family: Helvetica, sans-serif;
+  color: #084c68;
+  border: 3px solid #084c68;
   border-spacing: 30px;
+  border-radius: 5%;
+  margin: 10px 20px;
+  width: auto;
+  height: auto;
 }
+
+div#tables {
+  margin-left: 10px;
+  float: left;
+}
+
+// #tables {
+//   display: inline-block;
+//   margin: auto
+// }
+
+td {
+  width: 320px;
+  height: 20px;
+}
+
+td.attribute {
+  width: 80px;
+}
+
+div#boxes {
+  display: inline-block;
+  float: left;
+}
+
+
+div.product_box {
+  text-align: center;
+  height: 40px;
+  width: 100px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  margin: 10px;
+  background-color: #8dc63f;
+  border: 3px solid #084c68;
+  border-radius: 5%;
+  display: block;
+  
+  a {  
+  text-decoration: none;
+  font-family: Helvetica, sans-serif;
+  font-size: 10px;
+  color: #084c68;
+  }  
+}
+
+#button {
+  height: 30px;
+  width: 100px;
+  margin-left: 50px;
+
+}
+
+p {
+  font-family: Helvetica, sans-serif;
+  color: #084c68;
+}
+
+a {
+  text-decoration: none;
+}
+
+// p#button {
+//   text-align: center;
+// }
+
+div#index {
+  width: 100%;
+  margin: auto;
+
+  img {
+    display: block;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+#update_button {
+  margin: 30px 10px 0px 0px;
+}
+
+
+#delete_button, #edit_button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 

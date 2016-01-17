@@ -1,27 +1,48 @@
-<h1>Products for Sale</h1>
-<p></p>
 
-<% @products.each do |product| %>
-<h2>Product Information<br></h2>
 
-<table>
+  <h1>Products for Sale</h1>
+  <p></p>
 
-  <tbody>
-    <tr>
-      <td><strong>Name:</strong></td>
-      <td><%= product.name %></td>
-    </tr>
-    <tr>
-      <td><strong>Price:</strong></td>
-      <td><%= product.price %></td>
-    </tr><tr>
-      <td><strong>Image:</strong></td>
-      <td><img src="<%= product.image %>"/></td>
-    </tr><tr>
-      <td><strong>Description:</strong></td>
-      <td><%= product.description %></td>
-    </tr>
-  </tbody>
+<div id="boxes">
+   <% @products.each do |product| %>
 
-</table>
-<% end %>
+  <div class="product_box">
+    <div><a href="localhost:3000/"><%= product.name %>
+    </a></div>
+
+  </div>
+
+   <% end %>
+</div>
+
+<div id="tables">
+
+  <% @products.each do |product| %>
+
+  <table>
+    <thead>
+      <th colspan="2">Product Information<br><br><img src="<%= product.image %>"/></th>
+    </thead>
+
+    <tbody>
+    
+      <tr>
+        <td class ="attribute"><strong>Name:</strong></td>
+        <td ><div id="info"><%= product.name %></div></td>
+      </tr>
+
+      <tr>
+        <td class ="attribute"><strong>Price:</strong></td>
+        <td><div id="info"><%= product.price %><button id="button" type="button" class="btn btn-primary btn-lg">Buy</button></div></td></div></td>
+      </tr>
+
+      <tr>
+        <td class ="attribute"><strong>Description:</strong></td>
+        <td><div id="info"><%= product.description %></div></td>
+      </tr>
+
+    </tbody>
+
+  </table>
+  <% end %>
+</div>
