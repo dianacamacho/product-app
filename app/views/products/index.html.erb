@@ -1,23 +1,26 @@
-
-
 <div id="index">
-<% @products.each do |product| %>
-<img src="<%= product.image %>"/>
-<p><a href="/products/<%= product.id %>"/><%= product.name %></a></p>
 
-<button id="edit_button"><a data-confirm="Edit Product?" data-method="get" href="/products/<%= product.id%>/edit" >Edit Product</a></button>
+  <h2>Index of All Available Products</h2>
 
-<button id="delete_button"><a data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= product.id%>" rel="nofollow">Delete Product</a></button>
+  <% @products.each do |product| %>
+    
+    <img src="<%= product.image %>"/>
 
-<button id="add_button"><a data-confirm="Add a product?" data-method="get" href="/products/new" rel="nofollow">Add Product</a></button>
+    <h3><%= product.name %></h3>
 
+    <a id="index-learn-more-button" href="/products/<%= product.id %>" class="btn btn-default btn-sm active" role="button">Learn More</a>
 
+    <a id="index-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
 
-<hr>
+    <a id="index-new-button" data-confirm="Create new product?" href="/products/new" role="button" class="btn btn-default btn-sm active">Add New Product</a>
 
-<% end %>
+    <a id="index-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
+
+    <div id="div-line"></div>
+
+  <% end %>
+
 </div>
-
 
 
 

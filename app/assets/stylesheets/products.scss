@@ -2,139 +2,263 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// #wrapper {
-//   margin: auto
-// }
+body { 
+  padding-top: 70px;
+}
 
-// #tables {
-//   display: inline-block;
-// }
-h1 {
-  font-family: Helvetica, sans-serif;
-  text-align: center;
-  color: #084c68;
-  height: 50px;
-  width: 100%;
+#show-product-details {
   
-  margin-left: 10px;
-  margin-right: 10px;
-  background-color: #8dc63f;
-  border: 3px solid #084c68;
-  border-radius: 5px;
-
-}
-
-img {
-  max-height: 200px;
-  margin: auto;
-  margin-bottom: 20px;
-}
-
-table {
-  font-family: Helvetica, sans-serif;
-  color: #084c68;
-  border: 3px solid #084c68;
-  border-spacing: 30px;
-  border-radius: 5px;
-  margin: 10px 20px;
-  width: auto;
-  height: auto;
-}
-
-div#tables {
-  margin-left: 10px;
-  float: left;
-}
-
-// #tables {
-//   display: inline-block;
-//   margin: auto
-// }
-
-td {
-  width: 320px;
-  height: 20px;
-}
-
-td.attribute {
-  width: 80px;
-}
-
-div#boxes {
-  display: inline-block;
-  float: left;
-}
-
-
-div.product_box {
-  text-align: center;
-  height: 40px;
-  width: 100px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 20px;
-  margin: 10px;
-  background-color: #8dc63f;
-  border: 3px solid #084c68;
-  border-radius: 5%;
-  display: block;
-  
-  a {  
-  text-decoration: none;
-  font-family: Helvetica, sans-serif;
-  font-size: 10px;
-  color: #084c68;
-  }  
-}
-
-#button {
-  height: 30px;
-  width: 100px;
-  margin-left: 50px;
-
-}
-
-p {
-  font-family: Helvetica, sans-serif;
-  color: #084c68;
-}
-
-a {
-  text-decoration: none;
-}
-
-// p#button {
-//   text-align: center;
-// }
-
-div#index {
-  width: 100%;
-  margin: auto;
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
 
   img {
+    max-height: 200px;
     display: block;
+    margin: 30px auto;
   }
 
   p {
     text-align: center;
+    margin: 30px 20%;
+  }
+
+  #div-line {
+    height: 1px;
+    width: 400px;
+    margin: auto;
+    background-color: #44494b;
+  }
+
+  #buy-button {
+    height: 20px;;
+    width: 80px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+#new-product {
+
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .label_tag {
+    margin-top: 10px;
+    margin-bottom: -2px; 
+  }
+
+  #submit-new {
+    margin-top: 20px;
   }
 }
 
-#update_button {
-  margin: 50px 10px 0px 0px;
+#edit-product {
+
+      margin-left: 5%;
+
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .label_tag {
+    margin-top: 10px;
+    margin-bottom: -2px; 
+  }
+
+  #submit-new {
+    margin-top: 20px;
+  }
+
+  #edit-delete-button {
+    margin-top: 10px;
+
+    button {
+      width: 114px;
+    }
+  }
+
 }
 
+#index {
 
-#delete_button, #edit_button, #add_button {
-  width: 120px;
-  height: 30px;
-  display: block;
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  img {
+    max-height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    text-align: center;
+    margin: 30px 20%;
+  }
+
+  #div-line {
+    height: 1px;
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #44494b;
+  }
+
+  #index-learn-more-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #index-edit-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #index-new-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #index-delete-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+#all-products {
+  width: 1280;
+  background-color: skyblue;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+  .container {
+    background-color: #d4e1e6;
+    height: 500px;
+    width: 320px;
+    border: 2px solid #44494b;
+    border-radius: 5px;
+    margin: 10px 10px;
+    display: inline-block;
+    float: left;
+  }
+  
+  img {
+    max-height: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  h1, h4, h3 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #button-box {
+    margin-bottom: 20px;
+  }
+
+  #div-line {
+    height: 1px;
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #44494b;
+  }
+
+  #all-learn-more-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #all-edit-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #all-new-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #all-delete-button {
+    height: 20px;;
+    width: 150px;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
-
-
-

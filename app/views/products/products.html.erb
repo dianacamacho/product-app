@@ -1,48 +1,33 @@
+<div id="all-products">
 
-
-  <h1>Products for Sale</h1>
-  <p></p>
-
-<div id="boxes">
-   <% @products.each do |product| %>
-
-  <div class="product_box">
-    <div><a href="localhost:3000/"><%= product.name %>
-    </a></div>
-
-  </div>
-
-   <% end %>
-</div>
-
-<div id="tables">
+<h1>All Products for Sale</h1>
 
   <% @products.each do |product| %>
 
-  <table>
-    <thead>
-      <th colspan="2">Product Information<br><br><img src="<%= product.image %>"/></th>
-    </thead>
-
-    <tbody>
+    <div class="container">
     
-      <tr>
-        <td class ="attribute"><strong>Name:</strong></td>
-        <td ><div id="info"><%= product.name %></div></td>
-      </tr>
+    <img src="<%= product.image %>"/>
 
-      <tr>
-        <td class ="attribute"><strong>Price:</strong></td>
-        <td><div id="info"><%= product.price %><button id="button" type="button" class="btn btn-primary btn-lg">Buy</button></div></td></div></td>
-      </tr>
+    <h3><%= product.name %></h3>
+    <h4><%= product.price %></h4>
 
-      <tr>
-        <td class ="attribute"><strong>Description:</strong></td>
-        <td><div id="info"><%= product.description %></div></td>
-      </tr>
+    <div id="all-button-box">
 
-    </tbody>
+      <a id="all-learn-more-button" href="/products/<%= product.id %>" class="btn btn-default btn-sm active" role="button">Learn More</a>
 
-  </table>
+      <a id="all-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
+
+      <a id="all-new-button" data-confirm="Create new product?" href="/products/new" role="button" class="btn btn-default btn-sm active">Add New Product</a>
+
+      <a id="all-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
+
+    </div>
+
+    </div>
+
+
   <% end %>
+
 </div>
+
+
