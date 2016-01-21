@@ -2,31 +2,31 @@
 
 <h1>All Products for Sale</h1>
 
+<div class="row">
   <% @products.each do |product| %>
+  <div class = "col-md-4 col-sm-6" class="index-grid-box">
+   <div class="thumbnail">
 
-    <div class="container">
-    
-    <img src="<%= product.image %>"/>
+      <img src="<%= product.image %>"/>
 
-    <h3><%= product.name %></h3>
-    <h4><%= product.price %></h4>
+      <h3><%= product.name %></h3>
+      <h4>$<%= product.price_string %></h4>
 
-    <div id="all-button-box">
+      <div id="all-button-box">
 
-      <a id="all-learn-more-button" href="/products/<%= product.id %>" class="btn btn-default btn-sm active" role="button">Learn More</a>
+        <a id="all-learn-more-button" href="/products/<%= product.id %>" class="btn btn-default btn-sm active" role="button">Learn More</a>
 
-      <a id="all-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
+        <a id="all-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
 
-      <a id="all-new-button" data-confirm="Create new product?" href="/products/new" role="button" class="btn btn-default btn-sm active">Add New Product</a>
+        <a id="all-new-button" data-confirm="Create new product?" href="/products/new" role="button" class="btn btn-default btn-sm active">Add New Product</a>
 
-      <a id="all-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
+        <a id="all-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
 
+      </div>
     </div>
-
-    </div>
-
-
+  </div>
   <% end %>
+</div>
 
 </div>
 

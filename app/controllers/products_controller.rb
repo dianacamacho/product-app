@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create({name: params[:name],  price: params[:price], image: params[:image], description: params[:description]})
+    @product = Product.create({name: params[:name],  price: params[:price], image: params[:image], description: params[:description], inventory: params[:inventory]})
     
     flash[:success] = "New Product created"
 
@@ -29,9 +29,9 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update({name: params[:name], price: params[:price], image: params[:image], description: params[:description]})
+    @product.update({name: params[:name], price: params[:price], image: params[:image], description: params[:description], inventory: params[:inventory]})
   
-    flash[:success] = "New Product updated"
+    flash[:success] = "Product updated!"
 
     redirect_to "/products/#{@product.id}"
   end

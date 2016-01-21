@@ -1,13 +1,25 @@
 <div id="show-product-details">
 
+  <h3 class="discount"><em><%= @product.sale_message %></em></h3>
+
   <h2><%= @product.name %></h2>
 
   <img src="<%= @product.image %>"/>
-  <p>Price: <%= @product.price %></p>
+  <p>Price: $<%= @product.price_string %></p>
+  <p><%= @product.tax %></p>
+  <h4 class="discount"><strong><%= @product.total %></strong></h4>
+  <a id="buy-button" data-confirm="Are you sure you want to buy the product?" href="#" class="btn btn-default btn-sm active" role="button">Buy</a>
   <div id="div-line"></div>
   <p><%= @product.description %></p>
+  <h3 id="stock"><%= @product.stock %></h3>
+  <p id="available">Number Available: <%= @product.inventory %></p>
   <div id="div-line"></div>
-  
-  <a id="buy-button" data-confirm="Are you sure you want to buy the product?" href="#" class="btn btn-default btn-sm active" role="button">Buy</a>
+
+  <p id="show-edit-delete">
+  <a id="show-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= @product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
+
+  <a id="show-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= @product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
+  </p>
+
 
 </div>

@@ -2,7 +2,7 @@
 
   <h2>Edit your product</h2>
 
-  <%= form_tag '/products/#{@product.id}', method: :patch do %>
+  <%= form_tag "/products/#{@product.id}", method: :patch do %>
 
   <div>
     <p class="label_tag"><%= label_tag "Name:" %></p>
@@ -24,6 +24,11 @@
     <%= text_field_tag :description, @product.description %>
   </div>
 
+  <div>
+    <p class="label_tag"><%= label_tag "Inventory:" %></p>
+    <%= text_field_tag :inventory, @product.inventory %>
+  </div>
+
   <div id="submit-new"><%= submit_tag "Update Product" %></div>
 
   <% end %>
@@ -33,8 +38,3 @@
 <p id="edit-delete-button"><button id="delete_button_edit"><a data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= @product.id%>" rel="nofollow">Delete Product</a></button></p>
 
 </div>
-
-
-
-
-
