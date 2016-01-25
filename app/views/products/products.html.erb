@@ -10,11 +10,11 @@
       <img src="<%= product.image %>"/>
 
       <h3><%= product.name %></h3>
-      <h4>$<%= product.price_string %></h4>
+      <h4><%= number_to_currency(product.price) %></h4>
 
       <div id="all-button-box">
 
-        <a id="all-learn-more-button" href="/products/<%= product.id %>" class="btn btn-default btn-sm active" role="button">Learn More</a>
+        <a id="all-learn-more-button" href="/products/<%= product.id %>" class="btn btn-default btn-sm active" role="button">More Info</a>
 
         <a id="all-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
 

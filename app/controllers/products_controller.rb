@@ -1,15 +1,35 @@
 class ProductsController < ApplicationController
 
-  def products
+  def products #future index
     @products = Product.all
+
+    if params[:sort]
+      @products = Product.order(params[:sort]) 
+    elsif params[:sort_high]
+      @products = Product.order(price: :desc)
+    elsif params[:discount]
+      @products = Product.where("price < ?", 10)
+    elsif params[:random]
+      id_array = Product.pluck(:id)
+      random_id = id_array.sample
+      @products = Product.where("id = ?", random_id)
+    end
+      
+
   end
 
   def index
     @products = Product.all
+
+    # if params[:sort]
+    #   @products = Product.order(:price)
+    # end
+
   end
 
   def show
     @product = Product.find(params[:id])
+
   end
 
   def new
@@ -43,6 +63,18 @@ class ProductsController < ApplicationController
     flash[:success] = "Good job deleting product"
     flash[:warning] = "Product deleted"
     redirect_to "/products"
+  end
+
+  def random
+    @product = Product.all.sample
+
+    render :show
+  end
+
+  def search
+    @products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+  
+    render :products
   end
 
 end

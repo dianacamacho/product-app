@@ -5,9 +5,9 @@
   <h2><%= @product.name %></h2>
 
   <img src="<%= @product.image %>"/>
-  <p>Price: $<%= @product.price_string %></p>
-  <p><%= @product.tax %></p>
-  <h4 class="discount"><strong><%= @product.total %></strong></h4>
+  <p id="price">Price: <%= number_to_currency(@product.price) %></p>
+  <p id="sales-tax">Sales tax: <%= number_to_currency(@product.tax) %></p>
+  <h4 class="discount"><strong>Total price: <%= number_to_currency(@product.total) %></strong></h4>
   <a id="buy-button" data-confirm="Are you sure you want to buy the product?" href="#" class="btn btn-default btn-sm active" role="button">Buy</a>
   <div id="div-line"></div>
   <p><%= @product.description %></p>
