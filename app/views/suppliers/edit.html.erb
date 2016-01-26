@@ -1,0 +1,30 @@
+<div id="edit-product">
+
+  <h2>Edit the supplier</h2>
+
+  <%= form_tag "/suppliers/#{@supplier.id}", method: :patch do %>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Name:" %></p>
+     <%= text_field_tag :name, @supplier.name %>
+  </div>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Email:" %></p>
+     <%= text_field_tag :name, @supplier.email %>
+  </div>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Phone:" %></p>
+    <%= text_field_tag :phone, @supplier.phone %>
+  </div>
+
+  <div id="submit-new"><%= submit_tag "Update supplier" %></div>
+
+  <% end %>
+
+
+
+<p id="edit-delete-button"><button id="delete_button_edit"><a data-confirm="Are you sure you want to delete supplier?" data-method="delete" href="/suppliers/<%= @supplier.id%>" rel="nofollow">Delete supplier</a></button></p>
+
+</div>

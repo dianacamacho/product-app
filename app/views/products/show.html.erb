@@ -5,6 +5,7 @@
   <h2><%= @product.name %></h2>
 
   <img src="<%= @product.image %>"/>
+  <p id="price">Supplier: <%= @product.supplier.name %></p>
   <p id="price">Price: <%= number_to_currency(@product.price) %></p>
   <p id="sales-tax">Sales tax: <%= number_to_currency(@product.tax) %></p>
   <h4 class="discount"><strong>Total price: <%= number_to_currency(@product.total) %></strong></h4>

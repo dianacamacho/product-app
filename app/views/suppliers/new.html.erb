@@ -1,0 +1,28 @@
+<div id="new-product">
+
+  <h2>Add a new supplier</h2>
+
+  <%= form_tag '/suppliers', method: :post do %>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Name:" %></p>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Email:" %></p>
+    <%= text_field_tag :email %>
+  </div>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Phone:" %></p>
+    <%= text_field_tag :phone %>
+  </div>
+
+  <div id="submit-new"><%= submit_tag "Submit New Supplier" %></div>
+
+  <% end %>
+
+</div>
+
+
