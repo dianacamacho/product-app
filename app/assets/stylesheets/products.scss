@@ -14,10 +14,17 @@ body {
     margin-bottom: 40px;
   }
 
-  img {
-    max-height: 200px;
-    display: block;
-    margin: 30px auto;
+  #show-img {
+    max-height: 150px;
+    padding: 10px;
+    background-color: #ffffff;
+    display: inline-block;
+    margin: 20px;
+    border: 2px solid #d4e1e6;
+  }
+
+  #p-show-img {
+    text-align: center
   }
 
   p {
@@ -47,6 +54,7 @@ body {
     height: 1px;
     width: 400px;
     margin: auto;
+    margin-top: 30px;
     background-color: #44494b;
   }
 
@@ -83,6 +91,30 @@ body {
   .discount {
     color: #e52854;
     text-align: center;
+  }
+
+  #checkout-form {
+    .label_tag {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  #carousel-example-generic {
+    img {
+      max-height: 200px;
+      max-width: 300px;
+      display: block;
+      margin: auto;
+    }
+
+    width: 400px;
+    height: 280px;
+    padding: 10px;
+    border: 6px solid #d4e1e6;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
   }
 
 }
@@ -122,6 +154,7 @@ body {
 
   #submit-new {
     margin-top: 20px;
+
   }
 
   #edit-delete-button {
@@ -134,7 +167,7 @@ body {
 
 }
 
-#index {
+#supplier-index {
 
   h2 {
     text-align: center;
@@ -212,7 +245,7 @@ body {
   }
 }
 
-#all-products {
+#index {
   
   margin-left: 20px;
   margin-right: 20px;
@@ -237,6 +270,7 @@ body {
   img {
     max-height: 120px;
     display: block;
+    border: none;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;

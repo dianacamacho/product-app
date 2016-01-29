@@ -15,6 +15,11 @@
   </div>
 
   <div>
+    <p class="label_tag"><%= label_tag "Supplier:" %></p>
+    <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %>
+  </div> 
+
+  <div>
     <p class="label_tag"><%= label_tag "Price:" %></p>
     <%= text_field_tag :price %>
   </div>

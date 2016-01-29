@@ -1,7 +1,9 @@
 class Product < ActiveRecord::Base
 
+
   belongs_to :supplier
-  has_many :images
+  has_many :images 
+  has_many :orders
 
   def sale_message
 
@@ -28,6 +30,14 @@ def stock
     "In Stock"
   else
     "Out of Stock"
+  end
+end
+
+def get_first_image
+  if images.first != nil
+    images.first.image_url
+  else 
+    Image.first.image_url
   end
 end
 

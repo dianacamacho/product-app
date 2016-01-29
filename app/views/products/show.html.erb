@@ -4,12 +4,57 @@
 
   <h2><%= @product.name %></h2>
 
-  <img src="<%= @product.image %>"/>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <% (@product.images.size - 1).times do %>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <% end %>
+    
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+
+    <div class="item active">
+      <img src="<%= @product.images[0].image_url %>" alt="...">
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+
+  <% @product.images.each_with_index do |image, index| %>
+
+    <% if index != 0 %>
+      <div class="item">
+        <img src="<%= image.image_url %>" alt="...">
+        <div class="carousel-caption"> 
+        </div>
+      </div>   
+    <% end %>
+
+  <% end %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
   <p id="price">Supplier: <%= @product.supplier.name %></p>
   <p id="price">Price: <%= number_to_currency(@product.price) %></p>
   <p id="sales-tax">Sales tax: <%= number_to_currency(@product.tax) %></p>
   <h4 class="discount"><strong>Total price: <%= number_to_currency(@product.total) %></strong></h4>
-  <a id="buy-button" data-confirm="Are you sure you want to buy the product?" href="#" class="btn btn-default btn-sm active" role="button">Buy</a>
+
+
   <div id="div-line"></div>
   <p><%= @product.description %></p>
   <h3 id="stock"><%= @product.stock %></h3>
@@ -21,6 +66,29 @@
 
   <a id="show-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= @product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
   </p>
+
+  <div id="checkout-form">
+
+    <h2>Checkout</h2>
+
+    <%= form_tag "/orders", method: :post do %>
+
+    <div>
+      <p class="label_tag"><%= label_tag "Quantity:" %>
+      <%= text_field_tag :quantity, nil, placeholder: "enter integer" %></p>
+    </div>
+
+    <div>
+       <%= hidden_field_tag :product_id, @product.id %>
+    </div>
+
+    
+    <p id="submit-new"><%= submit_tag "Buy Now" %></p>
+
+    <% end %>
+
+  </div>
+ 
 
 
 </div>

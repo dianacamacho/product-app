@@ -9,9 +9,18 @@
      <%= text_field_tag :name, @product.name %>
   </div>
 
-  <div>
+  <% @product.images.each do |image| %>
+
+  <div>   
     <p class="label_tag"><%= label_tag "Image URL:" %></p>
-     <%= text_field_tag :image, @product.image %>
+     <%= text_field_tag :image, image.image_url %>
+  </div>
+
+  <% end %>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Supplier:" %></p>
+    <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %>
   </div>
 
   <div>
