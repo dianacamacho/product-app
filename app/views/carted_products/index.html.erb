@@ -1,0 +1,33 @@
+
+<div id="carted-index">
+
+<h2>Cart Details</h2>
+
+<table>
+  <tr class="header-row">
+    <td class="status-column">Status</td>
+    <td class="name-column">Product Name</td>
+    <td class="price-column">Price</td>
+    <td class="quantity-column">Quantity</td>
+    <td class="remove-column">Remove</td>
+  </tr>
+
+<% @carted_products.each do |carted_product| %>
+
+  <tr>
+    <td class="status-column"><%= carted_product.status %></td>
+    <td class="name-column"><%= carted_product.product.name %></td>
+    <td class="price-column"><%= number_to_currency(carted_product.product.price) %></td>
+    <td class="quantity-column"><%= carted_product.quantity %></td>
+
+    <td class="remove-column"><a id="carted-index-remove-button" data-confirm="Are you sure you want to remove the item?" data-method="delete" href="/carted_products/<%= carted_product.id %>" rel="nofollow" role="button" class="btn btn-default btn-xs active">x</a></td>
+  </tr>
+
+<% end %>
+</table>
+
+<a id="shop-index-button" href="/" rel="nofollow" role="button" class="btn btn-default btn-sm active">Keep Shopping</a>
+
+<a id="carted-index-buy-button" data-confirm="Are you sure you want to place the order?" data-method="post" href="/orders" rel="nofollow" role="button" class="btn btn-default btn-sm active">Place Order</a>
+
+</div>

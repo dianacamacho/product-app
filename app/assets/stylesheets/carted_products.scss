@@ -1,0 +1,74 @@
+// Place all the styles related to the carted_products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#carted-index {
+  
+  margin-left: 20px;
+
+  table {
+    width: 95%;
+    margin-top: 30px;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  .header-row {
+    color: #e52854;
+    border: 2px solid #e52854;
+  }
+
+  .status-column {
+    width: 80px;
+  }
+
+  .name-column {
+    width: 340px;
+  }
+
+  .price-column {
+    width: 120px;
+  }
+
+  .quantity-column {
+    width: 80px;
+  }
+
+  #shop-index-button {
+    height: 20px;;
+    width: 110px;
+    padding-bottom: 20px;
+    margin: 20px 5px;
+
+  }
+
+  #carted-index-buy-button {
+    height: 20px;;
+    width: 110px;
+    padding-bottom: 20px;
+    margin: 20px 10px;
+
+    // display: block;
+    // margin-left: auto;
+    // margin-right: auto;
+  }
+
+}
+
+#order-show {
+
+  table {
+    width: 500px;
+  }
+
+  .product-column {
+    width: 80px;
+  }
+
+  .quantity-column {
+    width: 80px;
+  }
+}

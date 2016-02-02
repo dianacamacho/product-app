@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
       random_id = id_array.sample
       @products = Product.where("id = ?", random_id)
     end
+
       
 
   end
@@ -32,6 +33,10 @@ class ProductsController < ApplicationController
       id_array = Product.pluck(:id)
       random_id = id_array.sample
       @products = Product.where("id = ?", random_id)
+    end
+
+    if params[:category] 
+      @products = Category.find_by(name: params[:category]).products
     end
 
     # if params[:sort]

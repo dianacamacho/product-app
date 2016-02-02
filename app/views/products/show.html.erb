@@ -59,6 +59,10 @@
   <p><%= @product.description %></p>
   <h3 id="stock"><%= @product.stock %></h3>
   <p id="available">Number Available: <%= @product.inventory %></p>
+  <p>categories: 
+  <% @product.categories.each do |category| %>
+     <a href="/?category=<%= category.name.gsub(/&/, "%26") %>"><%= category.name.downcase %></a>
+  <% end %></p>
   <div id="div-line"></div>
 
   <p id="show-edit-delete">
@@ -71,7 +75,7 @@
 
     <h2>Checkout</h2>
 
-    <%= form_tag "/orders", method: :post do %>
+    <%= form_tag "/cart", method: :post do %>
 
     <div>
       <p class="label_tag"><%= label_tag "Quantity:" %>
@@ -83,7 +87,7 @@
     </div>
 
     
-    <p id="submit-new"><%= submit_tag "Buy Now" %></p>
+    <p id="submit-new"><%= submit_tag "Add to Cart" %></p>
 
     <% end %>
 

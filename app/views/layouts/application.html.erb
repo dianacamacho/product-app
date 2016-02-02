@@ -55,8 +55,14 @@
 
         <% end %>
 
+        <% if CartedProduct.where("status LIKE ?", "carted%").count != 0 %>
+          <li><%= link_to "My Cart", "/cart" if user_signed_in?%></li>
+        <% else %>
+          <li><%= link_to "My Cart", "/" if user_signed_in?%></li>
+        <% end %>
+
         <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in?%></li>
-        <li><a href="#"></a></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort Products <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -64,7 +70,11 @@
             <li><a href="/?sort_high=price">Price High to Low</a></a></li>
             <li><a href="/?sort=name">Sort by Name</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            
+            <% Category.all.each do |category| %>
+              <li><%= link_to category.name, "/?category=#{category.name.gsub(/&/,"%26")}" %></li>
+            <% end %>
+
           </ul>
         </li>
       </ul>

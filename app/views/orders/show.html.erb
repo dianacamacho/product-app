@@ -1,20 +1,34 @@
-<div id="order-details">
+<div id="order-show">
 
 <h2>Order Details</h2>
 
-<h5>Order Number: <%= @order.id %></h5>
-<h5>Ordered by: <%= current_user.email %></h5>
-<h5>Order date: <%= @order.friendly_created_at %></h5>
-<div id="div-line"></div>
-<h5>Product ordered: <%= @product.name %></h5>
+  <div id="order-details">
 
-<img src="<%= @product.get_first_image%>" />
-<div id="div-line"></div>
+    <h4>Order Number: <%= @order.id %></h4>
+    <h4>Ordered by: <%= current_user.email %></h4>
+    <h4>Order date: <%= @order.friendly_created_at %></h4>
+    <div id="div-line"></div>
+
+    <table>
+      <tr>
+        <td class="product-column"><strong>Products Ordered</strong></td>
+        <td class="quantity-column"><strong>Quantity</strong></td>
+      </tr>
+      <% @order.carted_products.each do |carted_product| %>
+      <tr>
+        <td class="product-column"><%= carted_product.product.name %></td>
+        <td class="quantity-column"><%= carted_product.quantity %></td>
+      </tr>
+      <% end %>
+    </table>
 
 
-<h5>Quantity ordered: <%= @order.quantity %></h5>
-<h5>Subtotal: <%= number_to_currency(@order.subtotal) %></h5>
-<h5>Tax: <%= number_to_currency(@order.tax) %></h5>
-<h5>Total: <%= number_to_currency(@order.total) %></h5>
+    <div id="div-line"></div>
+
+    <h4>Subtotal: <%= number_to_currency(@order.subtotal) %></h4>
+    <h4>Tax: <%= number_to_currency(@order.tax) %></h4>
+    <h4>Total: <%= number_to_currency(@order.total) %></h4>
+
+  </div>
 
 </div>
