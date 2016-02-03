@@ -2,21 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-  max-height: 150px;
-  border: 2px solid #d4e1e6;
-  border-radius: 5px;
-}
-
 #order-show {
   margin-left: 30px;
 
   #order-details {
     margin-top: 20px;
   }
-}
 
-table {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  .product-column {
+    width: 340px;
+
+    strong {
+      color: #e52854;
+    }
+  }
+
+  .quantity-column {
+    width: 80px;
+
+    strong {
+      color: #e52854;
+    }
+  }
+
+  #quantity-column-value {
+    text-align: center;
+  }
+
+  #div-line {
+    height: 1px;
+    width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 2px;
+    background-color: #44494b;
+  }
+
+  table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }

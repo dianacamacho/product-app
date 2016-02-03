@@ -3,12 +3,15 @@
 
 <h2>Cart Details</h2>
 
+<%= form_tag "/carted_products/#{@product.id}", method: :patch do %>
+
 <table>
   <tr class="header-row">
     <td class="status-column">Status</td>
     <td class="name-column">Product Name</td>
     <td class="price-column">Price</td>
     <td class="quantity-column">Quantity</td>
+    <td class="quantity-column">Edit</td>
     <td class="remove-column">Remove</td>
   </tr>
 
@@ -20,6 +23,7 @@
     <td class="name-column"><%= carted_product.product.name %></td>
     <td class="price-column"><%= number_to_currency(carted_product.product.price) %></td>
     <td class="quantity-column"><%= carted_product.quantity %></td>
+    <td class="remove-column"><a id="carted-index-remove-button" data-method="patch" href="/carted_products/<%= carted_product.id/edit %>" rel="nofollow" role="button" class="btn btn-default btn-xs active">x</a></td>
     <td class="remove-column"><a id="carted-index-remove-button" data-confirm="Are you sure you want to remove the item?" data-method="delete" href="/carted_products/<%= carted_product.id %>" rel="nofollow" role="button" class="btn btn-default btn-xs active">x</a></td>
   </tr>
   <% end %>

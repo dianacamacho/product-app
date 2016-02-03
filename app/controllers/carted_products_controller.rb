@@ -20,6 +20,14 @@ class CartedProductsController < ApplicationController
     @carted_product = CartedProduct.find(params[:id])
   end
 
+  def edit
+    @carted_product = CartedProduct.find(params[:id])
+    
+  end
+
+  def update
+  end
+
   def destroy
     @carted_product = CartedProduct.find(params[:id])
 

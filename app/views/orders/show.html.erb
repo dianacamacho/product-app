@@ -11,13 +11,13 @@
 
     <table>
       <tr>
-        <td class="product-column"><strong>Products Ordered</strong></td>
+        <td class="product-column" ><strong>Products Ordered</strong></td>
         <td class="quantity-column"><strong>Quantity</strong></td>
       </tr>
       <% @order.carted_products.each do |carted_product| %>
       <tr>
-        <td class="product-column"><%= carted_product.product.name %></td>
-        <td class="quantity-column"><%= carted_product.quantity %></td>
+        <td class="product-column" id="product-column-value"><%= carted_product.product.name %></td>
+        <td class="quantity-column" id="quantity-column-value"><%= carted_product.quantity %></td>
       </tr>
       <% end %>
     </table>

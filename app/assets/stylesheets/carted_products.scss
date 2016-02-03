@@ -37,6 +37,10 @@
     width: 80px;
   }
 
+  .remove-column {
+    width: 80px;
+  }
+
   #shop-index-button {
     height: 20px;;
     width: 110px;
@@ -51,24 +55,14 @@
     padding-bottom: 20px;
     margin: 20px 10px;
 
+  #carted-index-remove-button {
+    height: 20px;
+    padding-bottom: 20px;
+  }
+
     // display: block;
     // margin-left: auto;
     // margin-right: auto;
   }
 
-}
-
-#order-show {
-
-  table {
-    width: 500px;
-  }
-
-  .product-column {
-    width: 80px;
-  }
-
-  .quantity-column {
-    width: 80px;
-  }
 }
