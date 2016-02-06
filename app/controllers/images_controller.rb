@@ -1,22 +1,30 @@
 class ImagesController < ApplicationController
 
+  before_action :authenticate_admin! 
+
   def index
     @images = Image.all
   end
 
   def new
+   @image = Image.new({image_url: params[:image_url]})
   end
 
   def create
-    @image = Image.create({image_url: params[:image_url]})
+    @image = Image.new({image_url: params[:image_url]})
 
-    flash[:success] = "Image added!"
+    if @image.save 
 
-    redirect_to "/images"
+      flash[:success] = "Image added!"
+      redirect_to "/images"
+    else
+      render :new
+    end
   end
 
   def show
     @image = Image.find(params[:id])
+
   end
 
   def edit
@@ -28,10 +36,9 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.update({image_url: params[:image_url]})
 
-    flash[:success] = "Image updated!"
+      flash[:success] = "Image updated!"
+      redirect_to "/images/#{@image.id}"
 
-
-    redirect_to "/images/#{@image.id}"
   end 
 
   def destroy

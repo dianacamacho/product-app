@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
+
   def products 
     @products = Product.all
 
@@ -20,6 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def index
+
     @products = Product.all
     @images = Image.all
 
@@ -47,28 +50,45 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-
-    @image = Image.find(params[:id])
+    @carted_product |= CartedProduct.new 
   end
 
   def new
+    @product = Product.new
+    @image = Image.new
   end
 
   def create
     
 
-    @product = Product.create({name: params[:name],
+    @product = Product.new({name: params[:name],
                                 price: params[:price], 
                                 description: params[:description], 
                                 inventory: params[:inventory],
                                 supplier_id: params[:supplier][:supplier_id]})
+    @image = Image.new(image_url: params[:image_url])
     
-    Image.create(image_url: params[:image], 
-                  product_id: @product.id) if params[:image] != ""
 
-    flash[:success] = "New Product created"
+    if @product.save
+      flash[:success] = "New Product created"
+      if params[:image] != ""
+        @image = Image.new(image_url: params[:image_url], 
+                    product_id: @product.id) 
 
-    redirect_to "/products"
+        unless @image.save
+          flash[:warning] = "Image did not save"
+          render "/images/new"
+        else
+          flash[:warning] = "Add image later"
+        end
+      end
+      
+      redirect_to "/products/#{@product.id}"
+    else
+      render :new
+    end
+
+
   end
 
   def edit
@@ -77,17 +97,23 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update({name: params[:name], 
+
+    if @product.update({name: params[:name], 
                       price: params[:price], 
                       description: params[:description], 
                       inventory: params[:inventory],
                       supplier_id: params[:supplier][:supplier_id]})
   
-    Image.create(image_url: params[:image], product_id: @product.id) if params[:image] != ""
+      Image.create(image_url: params[:image], product_id: @product.id) if params[:image] != ""
 
-    flash[:success] = "Product updated!"
+      flash[:success] = "Product updated!"
+      redirect_to "/products/#{@product.id}"
 
-    redirect_to "/products/#{@product.id}"
+    else 
+      render :edit
+
+    end
+
   end
 
   def destroy

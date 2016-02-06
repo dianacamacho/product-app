@@ -21,12 +21,12 @@
     border: 2px solid #e52854;
   }
 
-  .status-column {
-    width: 80px;
-  }
+  // .status-column {
+  //   width: 80px;
+  // }
 
   .name-column {
-    width: 340px;
+    width: 240px;
   }
 
   .price-column {
@@ -53,16 +53,17 @@
     height: 20px;;
     width: 110px;
     padding-bottom: 20px;
-    margin: 20px 10px;
+    margin: 20px 5px;
+  }
 
   #carted-index-remove-button {
-    height: 20px;
+    height: 16px;
     padding-bottom: 20px;
+    margin-top: 2px;
   }
 
     // display: block;
     // margin-left: auto;
     // margin-right: auto;
-  }
 
 }

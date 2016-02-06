@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <div id="show-product-details">
 
   <h3 class="discount"><em><%= @product.sale_message %></em></h3>
@@ -19,7 +25,7 @@
   <div class="carousel-inner" role="listbox">
 
     <div class="item active">
-      <img src="<%= @product.images[0].image_url %>" alt="...">
+      <img src="<%= @product.get_first_image %>" alt="...">
       <div class="carousel-caption">
         ...
       </div>
@@ -63,6 +69,9 @@
   <% @product.categories.each do |category| %>
      <a href="/?category=<%= category.name.gsub(/&/, "%26") %>"><%= category.name.downcase %></a>
   <% end %></p>
+
+  <% if user_signed_in? && current_user.admin %>
+  
   <div id="div-line"></div>
 
   <p id="show-edit-delete">
@@ -70,6 +79,9 @@
 
   <a id="show-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= @product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
   </p>
+  <% end %>
+
+  <% if user_signed_in? %>
 
   <div id="checkout-form">
 
@@ -92,6 +104,8 @@
     <% end %>
 
   </div>
+
+  <% end %>
  
 
 

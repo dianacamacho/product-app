@@ -24,7 +24,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <% if user_signed_in? && current_user.admin %>
         <li class="active"><a href="/products/new">Add New<span class="sr-only">(current)</span></a></li>
+        <% end %>
         <li><a href="/suppliers">Suppliers</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
@@ -49,16 +51,11 @@
 
         <% if current_user %>
           <li id="signed-in"> signed in: <%= current_user.email %></li>
+          <li><%= link_to "My Cart (#{@cart_count})", "/cart" if user_signed_in?%></li>
         <% else %>
           <li><a href="/users/sign_up">Sign Up</a></li>
           <li><%= link_to "Sign In", "/users/sign_in" %></li>
 
-        <% end %>
-
-        <% if CartedProduct.where("status LIKE ?", "carted%").count != 0 %>
-          <li><%= link_to "My Cart", "/cart" if user_signed_in?%></li>
-        <% else %>
-          <li><%= link_to "My Cart", "/" if user_signed_in?%></li>
         <% end %>
 
         <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in?%></li>
@@ -84,7 +81,7 @@
 
 <% flash.each do |name, message| %>
   
-  <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+  <div class="alert alert-<%= name == "alert" || name == "notice" ? "warning" : name %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong><%= message %></strong>
   </div>

@@ -1,3 +1,15 @@
+<% if @product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+ 
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div id="new-product">
 
   <h2>Add a new product</h2>
@@ -6,7 +18,7 @@
 
   <div>
     <p class="label_tag"><%= label_tag "Name:" %></p>
-    <%= text_field_tag :name %>
+    <%= text_field_tag :name, @product.name %>
   </div>
 
   <div>
@@ -21,17 +33,17 @@
 
   <div>
     <p class="label_tag"><%= label_tag "Price:" %></p>
-    <%= text_field_tag :price %>
+    <%= text_field_tag :price, @product.price %>
   </div>
 
   <div>
     <p class="label_tag"><%= label_tag "Description:" %></p>
-    <%= text_field_tag :description %>
+    <%= text_field_tag :description, @product.description %>
   </div>
 
   <div>
     <p class="label_tag"><%= label_tag "Inventory:" %></p>
-    <%= text_field_tag :inventory %>
+    <%= text_field_tag :inventory, @product.inventory %>
   </div>
 
   <div id="submit-new"><%= submit_tag "Submit" %></div>

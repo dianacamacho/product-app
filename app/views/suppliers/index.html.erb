@@ -2,7 +2,11 @@
 
   <h2>Index of Suppliers</h2>
 
+  <% if user_signed_in? && current_user.admin %>
+
    <a id="index-new-button" data-confirm="Add a new supplier?" href="/suppliers/new" role="button" class="btn btn-default btn-sm active">Add New Supplier</a>
+
+   <% end %>
 
   <% @suppliers.each do |supplier| %>
     
@@ -10,9 +14,13 @@
 
     <a id="index-more-info-button" href="/suppliers/<%= supplier.id %>" class="btn btn-default btn-sm active" role="button">More Info</a>
 
+    <% if user_signed_in? && current_user.admin %>
+
     <a id="index-edit-button" data-confirm="Are you sure you want to edit the supplier?" href="/suppliers/<%= supplier.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
 
     <a id="index-delete-button" data-confirm="Are you sure you want to delete supplier info?" data-method="delete" href="/suppliers/<%= supplier.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
+
+    <% end %>
 
     <div id="div-line"></div>
 
