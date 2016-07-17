@@ -2,14 +2,11 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
   validates :name, length: { maximum: 140}
-  validates :name, format: { without: /\W/, message: "name cannot contain special characters"}
   validates :price, presence: true
   validates :price, numericality: true
   validates :price, numericality: { greater_than: 0}
   validates :supplier_id, presence: true
   validates :supplier_id, numericality: { only_integer: true}
-
-
 
   belongs_to :supplier
 

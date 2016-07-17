@@ -1,0 +1,24 @@
+<div>
+    <p class="label_tag"><%= label_tag "Name:" %></p>
+    <%= text_field_tag :name, @product.name %>
+  </div>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Supplier:" %></p>
+    <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %>
+  </div> 
+
+  <div>
+    <p class="label_tag"><%= label_tag "Price:" %></p>
+    <%= text_field_tag :price, @product.price %>
+  </div>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Description:" %></p>
+    <%= text_field_tag :description, @product.description %>
+  </div>
+
+  <div>
+    <p class="label_tag"><%= label_tag "Inventory:" %></p>
+    <%= text_field_tag :inventory, @product.inventory %>
+  </div>

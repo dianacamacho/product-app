@@ -31,8 +31,6 @@ class SuppliersController < ApplicationController
     @supplier.update({name: params[:name], email: params[:email], phone: params[:phone]})
 
     flash[:success] = "Supplier updated!"
-
-
     redirect_to "/suppliers/#{@supplier.id}"
   end 
 
@@ -41,9 +39,6 @@ class SuppliersController < ApplicationController
     @supplier.destroy
 
     flash[:warning] = "Supplier deleted"
-
     redirect_to "/suppliers"
   end
-
-
 end

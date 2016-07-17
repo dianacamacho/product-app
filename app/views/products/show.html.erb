@@ -1,4 +1,14 @@
-
+<% if @carted_product && @carted_product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@carted_product.errors.count, "error") %> prohibited this product from being added to your cart:</h2>
+ 
+    <ul>
+    <% @carted_product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 
 
@@ -70,15 +80,19 @@
      <a href="/?category=<%= category.name.gsub(/&/, "%26") %>"><%= category.name.downcase %></a>
   <% end %></p>
 
+  <% if user_signed_in? %>
+    <p id="show-edit-delete"><a id="show-edit-button" href="/images/new" class="btn btn-default btn-sm active" role="button">Add Image</a>
+  <% end %>
+
   <% if user_signed_in? && current_user.admin %>
   
-  <div id="div-line"></div>
+    <div id="div-line"></div>
 
-  <p id="show-edit-delete">
-  <a id="show-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= @product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
+    <p id="show-edit-delete"><a id="show-edit-button" data-confirm="Are you sure you want to edit the product?" href="/products/<%= @product.id %>/edit" class="btn btn-default btn-sm active" role="button">Edit</a>
 
-  <a id="show-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= @product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
-  </p>
+    <a id="show-delete-button" data-confirm="Are you sure you want to delete product?" data-method="delete" href="/products/<%= @product.id %>" rel="nofollow" role="button" class="btn btn-default btn-sm active">Delete</a>
+    </p>
+    
   <% end %>
 
   <% if user_signed_in? %>
