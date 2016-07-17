@@ -1,5 +1,4 @@
 class CartedProductsController < ApplicationController
-
   before_action :authenticate_user! 
 
   def index
@@ -12,10 +11,11 @@ class CartedProductsController < ApplicationController
   end
 
   def create
-      @carted_product = CartedProduct.new({user_id: current_user.id, 
-                                                product_id: params[:product_id],
-                                                quantity: params[:quantity],
-                                                status: "carted" })
+      @carted_product = CartedProduct.new(
+        user_id: current_user.id, 
+        product_id: params[:product_id],
+        quantity: params[:quantity],
+        status: "carted")
       @product = Product.find(params[:product_id])
      
       if @carted_product.save
